@@ -1,0 +1,19 @@
+<% @todos.each do |todo| %>
+
+  <div class="well container">
+    <%= link_to todo.description, todo %>
+
+  <% if todo.completed == true %>
+    <strong>Listo</strong>
+  <% else %>
+    <button type="button" class="btn btn-lg btn-success">
+      <%= link_to "Completar", complete_path(todo) %></button>
+  <% end %>
+  <button type="button" class="btn btn-sm btn-danger"><%= link_to "Borrar", todo, method: :delete %></button>
+
+  </div>
+<% end %>
+
+<div class="container">
+  <button type="button" class="btn btn-lg btn-info"><%= link_to "Nuevo ToDo", todos_new_path %></button>
+</div>
